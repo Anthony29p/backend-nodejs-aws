@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    Entity CRUD
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+    Function:
+        Timeout: 3
+        Runtime: nodejs18.x
+        CodeUri: src/
+
+Resources:
+    CreateFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: create-person
+            Handler: index.createHandler
+            Architectures:
+                - x86_64
+            Events:
+                Entity:
+                    Type: Api
+                    Properties:
+                        Path: /
+                        Method: POST
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: 'es2020'
+                EntryPoints:
+                    - index.ts
+    FindFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: find-person
+            Handler: index.findHandler
+            Architectures:
+                - x86_64
+            Events:
+                Entity:
+                    Type: Api
+                    Properties:
+                        Path: /{id}
+                        Method: GET
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: 'es2020'
+                EntryPoints:
+                    - index.ts
