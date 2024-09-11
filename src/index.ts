@@ -1,7 +1,7 @@
 import { APIGatewayEvent, APIGatewayProxyResult, Handler } from 'aws-lambda';
-import PersonHandler from './api/person/handler';
 import { HTTP_METHOD } from './common/constants';
-import PersonService from './api/person/service/entity.service.impl';
+import PersonHandler from './api/person/handler';
+import PersonService from './api/person/service/person.service.impl';
 import StarWarsProvider from './provider/star-wars/star-wars.provider';
 
 const starWarsProvider = new StarWarsProvider();
