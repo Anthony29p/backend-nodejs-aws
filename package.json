@@ -15,6 +15,7 @@
         "test": "npm run compile && npm run unit"
     },
     "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.649.0",
         "axios": "^1.7.7",
         "esbuild": "^0.14.14",
         "ts-log-debug": "^5.5.3"

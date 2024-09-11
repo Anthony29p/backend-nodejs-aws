@@ -1,4 +1,4 @@
-import PersonService from '../../../../src/service/entity.service.impl';
+import PersonService from '../../../../src/api/person/service/entity.service.impl';
 
 describe('Person Service', async () => {
     it('should return person details when valid id is provided', async () => {

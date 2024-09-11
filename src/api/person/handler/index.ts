@@ -1,6 +1,6 @@
 import { APIGatewayEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { $log } from 'ts-log-debug';
-import { HANDLER, HTTP, METHOD } from '../common/constants';
+import { HANDLER, HTTP, METHOD } from '../../../common/constants';
 import { IPersonService } from '../service/entity.service';
 
 export default class PersonHandler {

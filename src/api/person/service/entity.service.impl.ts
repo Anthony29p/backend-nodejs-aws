@@ -1,8 +1,8 @@
 import { $log } from 'ts-log-debug';
 import { CreateRequest, CreateResponse, IPersonService } from './entity.service';
-import { METHOD, SERVICE } from '../common/constants';
-import { PersonSpanishResponse } from '../interfaces/interfaces';
-import StarWarsProvider from '../provider/star-wars/star-wars.provider';
+import { METHOD, SERVICE } from '../../../common/constants';
+import { PersonSpanishResponse } from '../../../interfaces/interfaces';
+import StarWarsProvider from '../../../provider/star-wars/star-wars.provider';
 
 export default class PersonService implements IPersonService {
     constructor(private starWarsProvider: StarWarsProvider) {}

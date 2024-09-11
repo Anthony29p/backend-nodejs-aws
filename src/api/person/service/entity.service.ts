@@ -1,4 +1,4 @@
-import { PersonSpanishResponse } from '../interfaces/interfaces';
+import { PersonSpanishResponse } from '../../../interfaces/interfaces';
 
 export interface CreateRequest extends PersonSpanishResponse {}
 export interface CreateResponse extends PersonSpanishResponse {}
