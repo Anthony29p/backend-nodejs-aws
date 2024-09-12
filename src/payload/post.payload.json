@@ -1,5 +1,5 @@
 {
-    "body": "eyJ0ZXN0IjoiYm9keSJ9",
+    "body": "{\"nombre\":\"Luke Skywalker\",\"altura\":\"172\",\"peso\":\"77\",\"color_cabello\":\"blond\",\"color_piel\":\"fair\",\"color_ojos\":\"blue\",\"fecha_nacimiento\":\"19BBY\",\"genero\":\"male\",\"planeta_natal\":\"https://swapi.py4e.com/api/planets/1/\"}",
     "resource": "/{proxy+}",
     "path": "/path/to/resource",
     "httpMethod": "POST",

@@ -8,6 +8,11 @@ export enum SERVICE {
     PERSON = 'Person Service |',
 }
 
+export enum REPOSITORY {
+    ENTITY = 'Entity Repository |',
+    PERSON = 'Person Repository |',
+}
+
 export enum METHOD {
     CREATE = 'create',
     FIND = 'find',
@@ -59,3 +64,5 @@ export enum NUMBER {
     THREE_HUNDRED_SIXTY_FIVE = 365,
     ONE_THOUSAND = 1000,
 }
+
+export const numberRegex = /^[0-9]+$/;
