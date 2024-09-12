@@ -74,7 +74,5 @@ Es importante configurar correctamente los permisos de AWS para que tu aplicaci√
 Ejecuta los siguientes comandos
 
 ```bash
-sam build
-
-sam deploy
+npm run deploy
 ```

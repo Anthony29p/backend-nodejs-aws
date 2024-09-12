@@ -1,9 +1,10 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { $log } from 'ts-log-debug';
 
 let dynamoDBClient: DynamoDBClient;
 
-const getDynamoDBClient = (): DynamoDBClient => {
+const getDynamoDBDocumentClient = (): DynamoDBDocumentClient => {
     if (dynamoDBClient) {
         $log.debug('Existant dynamo db client');
         return dynamoDBClient;
@@ -21,7 +22,9 @@ const getDynamoDBClient = (): DynamoDBClient => {
         dynamoDBClient = new DynamoDBClient();
         $log.debug('New dynamo db client');
     }
-    return dynamoDBClient;
+
+    const docClient = DynamoDBDocumentClient.from(dynamoDBClient);
+    return docClient;
 };
 
-export default getDynamoDBClient;
+export default getDynamoDBDocumentClient;

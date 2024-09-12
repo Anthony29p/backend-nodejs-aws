@@ -1,16 +1,26 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-    Entity CRUD
+    Star Wars CRUD
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
     Function:
         Timeout: 3
         Runtime: nodejs18.x
         CodeUri: src/
+        Environment:
+            Variables:
+                DATABASE_NAME: star-wars
 
 Resources:
+    Table:
+        Type: AWS::Serverless::SimpleTable
+        Properties:
+            TableName: star-wars
+            PrimaryKey:
+                Name: id
+                Type: String
+
     CreateFunction:
         Type: AWS::Serverless::Function
         Properties:
@@ -24,6 +34,9 @@ Resources:
                     Properties:
                         Path: /
                         Method: POST
+            Policies:
+                - DynamoDBWritePolicy:
+                      TableName: !Ref Table
 
         Metadata:
             BuildMethod: esbuild
@@ -45,6 +58,9 @@ Resources:
                     Properties:
                         Path: /{id}
                         Method: GET
+            Policies:
+                - DynamoDBReadPolicy:
+                      TableName: !Ref Table
 
         Metadata:
             BuildMethod: esbuild

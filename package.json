@@ -9,6 +9,7 @@
     "scripts": {
         "invoke-create": "sam build & sam local invoke CreateFunction -e src/payload/post.payload.json",
         "invoke-find": "sam build & sam local invoke FindFunction -e src/payload/find.payload.json",
+        "deploy": "sam build & sam deploy",
         "unit": "jest",
         "lint": "eslint '*.ts' --quiet --fix",
         "compile": "tsc",
@@ -16,14 +17,18 @@
     },
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.649.0",
+        "@aws-sdk/lib-dynamodb": "^3.650.0",
         "axios": "^1.7.7",
-        "esbuild": "^0.14.14",
-        "ts-log-debug": "^5.5.3"
+        "esbuild": "^0.14.54",
+        "joi": "^17.13.3",
+        "ts-log-debug": "^5.5.3",
+        "uuid": "^10.0.0"
     },
     "devDependencies": {
         "@types/aws-lambda": "^8.10.92",
         "@types/jest": "^29.2.0",
         "@types/node": "^18.11.4",
+        "@types/uuid": "^10.0.0",
         "@typescript-eslint/eslint-plugin": "^5.10.2",
         "@typescript-eslint/parser": "^5.10.2",
         "eslint": "^8.8.0",
